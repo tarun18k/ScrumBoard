@@ -1,0 +1,107 @@
+.heading{
+    text-align: center;
+    font-family: 'Montserrat-light',sans-serif;
+    font-size: 1.5rem;
+    border-bottom: 0.1rem;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    height:auto;
+    background-color: gray;
+    margin-bottom: 0px;
+   
+}
+.tasks{
+    background-color:dimgrey;
+    height: 100%;
+    margin-top: 0px;
+    overflow:hidden;
+}
+.task1{
+    height: 100%;
+    border-right:1px;
+    border-right-style: solid;
+    border-right-color: black;
+    padding:5px;
+    
+}
+.task11{
+    height: 100%;
+    padding:5px;  
+  
+}
+.addtask{
+    font-size: 2rem;
+    color: seagreen;
+    background-color: transparent;
+    border: none;
+}
+.addtask:hover{
+    font-size: 2.25rem;
+    color: yellowgreen;
+}
+.delete{
+    font-size: 2rem;
+    background-color: transparent;
+    border: none;
+    
+}
+.delete:hover
+{
+    font-size: 2.25rem;
+}
+.edit
+{
+    font-size: 2rem;
+    background-color: transparent;
+    border: none;
+    color:darkblue;
+    
+}
+.edit:hover{
+    font-size: 2.25rem;
+}
+.caption
+{
+    display: none;
+}
+.footer {
+  margin: auto;
+  width: 100%;
+  padding: 3rem 2rem;
+    overflow:auto;
+    height: 100%;
+}
+
+.form {
+  padding: 2rem;
+  background: #f4f4f4;
+     display: none;
+}
+
+.myform label {
+  display: block;
+}
+
+.myform input{
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px;
+  background: #333;
+  color:black;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
+.btn:hover {
+  background: #444;
+}
+
