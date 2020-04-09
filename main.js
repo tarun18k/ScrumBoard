@@ -59,5 +59,5 @@ form.addEventListener('submit', function (e) {
     inputdesc.value = '';
     inputstatus.value = '';
     inputcat.value = '';
-    id = '';
-})
+   
+});
