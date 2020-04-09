@@ -40,7 +40,7 @@ const inputstatus = document.getElementById('status');
 const inputcat = document.getElementById('createdat');
 
 const divmaker = (text1, text2, text3, text4) => {
-    var div = document.createElement('div');
+    const div = document.createElement('div');
     div.style.width = '100%';
     div.style.height = 'auto';
     div.style.display='block';
