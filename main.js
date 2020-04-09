@@ -41,13 +41,14 @@ const inputcat = document.getElementById('createdat');
 
 const divmaker = (text1, text2, text3, text4) => {
     var div = document.createElement('div');
-    div.textContent="title: " + text1 + "/n" + "Description:" + text2 + "Status: " + text3 + "Createdat:" + text4 + "TimeCreated:" + new Date().getTime;
     div.style.width = '100%';
     div.style.height = 'auto';
     div.style.display='block';
     div.style.backgroundColor = 'yellowgreen';
     div.style.position = "static";
-    div.style.fontSize = "1rem;"
+    div.style.fontSize = "1rem";
+    var newContent = document.createTextNode("title: " + text1 + "/n" + "Description:" + text2 + "Status: " + text3 + "Createdat:" + text4 + "TimeCreated:" + new Date());
+    div.append(newContent);
     maindiv.appendChild(div);
 }
 form.addEventListener('submit', function (e) {
