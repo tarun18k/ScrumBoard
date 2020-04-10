@@ -1,3 +1,18 @@
+.sticky{
+    position: static;
+    width:75%;
+    height:auto;
+    font-family: 'Montserrat',sans-serif;
+    border: 2px;
+    border-style: solid;
+    background-color: yellowgreen;
+    display: block;
+    padding: 2px;
+    margin:2px 2px;
+    
+    
+    
+}
 .heading{
     text-align: center;
     font-family: 'Montserrat-light',sans-serif;
@@ -22,11 +37,13 @@
     border-right-style: solid;
     border-right-color: black;
     padding:5px;
+    overflow:auto;
     
 }
 .task11{
     height: 100%;
-    padding:5px;  
+    padding:5px;
+    overflow: auto;
   
 }
 .addtask{
@@ -70,12 +87,13 @@
   padding: 3rem 2rem;
     overflow:auto;
     height: 100%;
+      display: none;   
 }
 
 .form {
   padding: 2rem;
   background: #f4f4f4;
-     display: none;
+    
 }
 
 .myform label {

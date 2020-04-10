@@ -1,33 +1,33 @@
 function openform() {
-    document.getElementById("myform").style.display = "block";
+    document.getElementById("formu").style.display = "block";
 }
 
 function closeForm() {
-    document.getElementById("myform").style.display = "none";
+   document.getElementById("formu").style.display =  "none";
 }
 
 function openform1() {
-    document.getElementById("myform1").style.display = "block";
+    document.getElementById("formu1").style.display = "block";
 }
 
 function openform2() {
-    document.getElementById("myform2").style.display = "block";
+    document.getElementById("formu2").style.display = "block";
 }
 
 function openform3() {
-    document.getElementById("myform3").style.display = "block";
+    document.getElementById("formu3").style.display = "block";
 }
 
 function closeForm1() {
-    document.getElementById("myform1").style.display = "none";
+    document.getElementById("formu1").style.display = "none";
 }
 
 function closeForm2() {
-    document.getElementById("myform2").style.display = "none";
+    document.getElementById("formu2").style.display = "none";
 }
 
 function closeForm3() {
-    document.getElementById("myform3").style.display = "none";
+    document.getElementById("formu3").style.display = "none";
 }
 
 var form = document.getElementById('myform');
@@ -38,18 +38,36 @@ var inputdesc = document.getElementById('desc');
 var inputprior = document.getElementById('priority');
 var inputstatus = document.getElementById('status');
 var inputcat = document.getElementById('createdat');
+var style=document.createElement('style');
 
-const divmaker = (text1, text2, text3, text4) => {
+
+
+const divmaker = (text1, text2, text3) => {
     var div = document.createElement('div');
+    div.className ="sticky";
     maindiv.append(div);
-    var newContent = document.createTextNode("title: " + text1 + "/n" + "Description:" + text2 + "Status: " + text3 + "Createdat:" + text4 + "TimeCreated:" + new Date());
-    div.append(newContent);
+    var newContent = document.createTextNode("title: " + text1 );
+    div.appendChild(newContent);
+    newContent=document.createElement('br');
+    div.appendChild(newContent);
+    newContent = document.createTextNode ("Description:" + text2);
+    div.appendChild(newContent);
+    newContent=document.createElement('br');
+    div.appendChild(newContent);
+    newContent = document.createTextNode("Status: " + text3);
+    div.appendChild(newContent);
+    newContent=document.createElement('br');
+    div.appendChild(newContent);
+    newContent = document.createTextNode("Createdat:" + new Date())
+    div.appendChild(newContent);
+    newContent=document.createElement('br');
+    div.appendChild(newContent);
     
 }
 form.addEventListener('submit',function (e) {
     e.preventDefault()
 
-    divmaker(inputtitle.value,inputdesc.value,inputstatus.value,inputcat.value);
+    divmaker(inputtitle.value,inputdesc.value,inputstatus.value);
     inputtitle.value = '';
     inputdesc.value = '';
     inputstatus.value = '';
@@ -57,3 +75,4 @@ form.addEventListener('submit',function (e) {
     closeForm();
 
 });
+
