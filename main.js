@@ -30,34 +30,30 @@ function closeForm3() {
     document.getElementById("myform3").style.display = "none";
 }
 
-const form = document.getElementById("myform");
-const maindiv = document.getElementById("pending");
-const button = document.getElementById('ckt');
-const inputtitle = document.getElementById('title');
-const inputdesc = document.getElementById('desc');
-const inputprior = document.getElementById('priority');
-const inputstatus = document.getElementById('status');
-const inputcat = document.getElementById('createdat');
+var form = document.getElementById('myform');
+var maindiv = document.getElementById('pending');
+var button = document.getElementById('ckt');
+var inputtitle = document.getElementById('title');
+var inputdesc = document.getElementById('desc');
+var inputprior = document.getElementById('priority');
+var inputstatus = document.getElementById('status');
+var inputcat = document.getElementById('createdat');
 
 const divmaker = (text1, text2, text3, text4) => {
-    const div = document.createElement('div');
-    div.style.width = '100%';
-    div.style.height = 'auto';
-    div.style.display='block';
-    div.style.backgroundColor = 'yellowgreen';
-    div.style.position = "static";
-    div.style.fontSize = "1rem";
+    var div = document.createElement('div');
+    maindiv.append(div);
     var newContent = document.createTextNode("title: " + text1 + "/n" + "Description:" + text2 + "Status: " + text3 + "Createdat:" + text4 + "TimeCreated:" + new Date());
     div.append(newContent);
-    maindiv.appendChild(div);
+    
 }
-form.addEventListener('submit', function (e) {
+form.addEventListener('submit',function (e) {
     e.preventDefault()
 
-    divmaker(inputtitle.value, inputdesc.value, inputstatus.value, inputcat.value);
+    divmaker(inputtitle.value,inputdesc.value,inputstatus.value,inputcat.value);
     inputtitle.value = '';
     inputdesc.value = '';
     inputstatus.value = '';
     inputcat.value = '';
-   
+    closeForm();
+
 });
