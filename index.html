@@ -16,7 +16,7 @@
         <h1 class="heading col-lg-3 col-md">Testing</h1>
     </div>
     <div class="tasks row">
-        <div id="pending" class="task1 col-lg-3 col-md">
+        <div id="requirements" class="task1 col-lg-3 col-md">
             <button class="addtask" onclick="openform()"><i class="fas fa-sticky-note">+</i><span class="caption">ADD NOTE</span></button>
             <button class="delete"><i class="fas fa-trash"></i><span class="caption">Delete</span></button>
             <button class="edit"><i class="fas fa-pencil-alt"></i><span class="caption">Edit</span></button>
@@ -63,29 +63,28 @@
             </div>
 
         </div>
-        <div class="task1 col-lg-3 col-md">
-
+         <div id="design" class="task1 col-lg-3 col-md">
             <button class="addtask" onclick="openform1()"><i class="fas fa-sticky-note">+</i><span class="caption">ADD NOTE</span></button>
-            <button class="delete"><i class="fas fa-trash"></i><span class="caption">ADD NOTE</span></button>
-                  <button class="edit"><i class="fas fa-pencil-alt"></i><span class="caption">Edit</span></button>
-            <div id="formu1" class="footer">
-                <form id="myform1" class="form">
+            <button class="delete"><i class="fas fa-trash"></i><span class="caption">Delete</span></button>
+            <button class="edit"><i class="fas fa-pencil-alt"></i><span class="caption">Edit</span></button>
+            <div id="formu1" class="footer">    
+            <form id="myform1" class="form">
                     <h1>Add Note</h1>
                     <label>Title:
                     </label>
                     <br>
-                    <input type="text" name="title">
+                    <input id="title1" type="text" name="title">
                     <br>
                     <label>Description:
                     </label>
                     <br>
-                    <input type="text" name="dsecription">
+                    <input id="desc1" type="text" name="dsecription">
                     <br>
                     <label>Status:
                     </label>
                     <br>
                     <label for="status">Pending</label>
-                    <input type="radio" name="status" value="Pending">
+                    <input id="status1" type="radio" name="status" value="Pending">
                     <br>
                     <label for="status">Inprogress</label>
                     <input type="radio" name="status" value="Inprogress">
@@ -97,44 +96,42 @@
                     <label>Created At:
                     </label>
                     <br>
-                    <input type="text" name='createdat'>
+                    <input id="createdat1" type="text" name='createdat'>
                     <br>
                     <label>Priority:
                     </label>
                     <br>
-                    <input type="number" name='priority'>
+                    <input id="priority1" type="number" name='priority'>
                     <br>
 
-                    <button class="btn" type="button" onclick="sumbitform1()" name="sumbit">Create Task</button>
+                    <button id="ckt1" class="btn" type="submit">Create Task</button>
                     <button type="button" class="btn" onclick="closeForm1()">Close</button>
-
                 </form>
-
             </div>
-        </div>
-        <div class="task1 col-lg-3 col-md">
 
-            <button class="addtask" onclick="openform2()"><i class="fas fa-sticky-note"></i><span class="caption">ADD NOTE</span></button>
-            +<button class="delete"><i class="fas fa-trash"></i><span class="caption">ADD NOTE</span></button>
-            <button class="edit"><i class="fas fa-pencil-alt"></i><span class="caption">ADD NOTE</span></button>
-            <div id="formu2" class="footer">
-                <form id="myform2" class="form">
+        </div>
+         <div id="development" class="task1 col-lg-3 col-md">
+            <button class="addtask" onclick="openform2()"><i class="fas fa-sticky-note">+</i><span class="caption">ADD NOTE</span></button>
+            <button class="delete"><i class="fas fa-trash"></i><span class="caption">Delete</span></button>
+            <button class="edit"><i class="fas fa-pencil-alt"></i><span class="caption">Edit</span></button>
+            <div id="formu2" class="footer">    
+            <form id="myform2" class="form">
                     <h1>Add Note</h1>
                     <label>Title:
                     </label>
                     <br>
-                    <input type="text" name="title">
+                    <input id="title2" type="text" name="title">
                     <br>
                     <label>Description:
                     </label>
                     <br>
-                    <input type="text" name="dsecription">
+                    <input id="desc2" type="text" name="dsecription">
                     <br>
                     <label>Status:
                     </label>
                     <br>
                     <label for="status">Pending</label>
-                    <input type="radio" name="status" value="Pending">
+                    <input id="status2" type="radio" name="status" value="Pending">
                     <br>
                     <label for="status">Inprogress</label>
                     <input type="radio" name="status" value="Inprogress">
@@ -146,44 +143,42 @@
                     <label>Created At:
                     </label>
                     <br>
-                    <input type="text" name='createdat'>
+                    <input id="createdat2" type="text" name='createdat'>
                     <br>
                     <label>Priority:
                     </label>
                     <br>
-                    <input type="number" name='priority'>
+                    <input id="priority2" type="number" name='priority'>
                     <br>
 
-                    <button class="btn" type="button" onclick="sumbitform2()" name="sumbit">Create Task</button>
+                    <button id="ckt2" class="btn" type="submit">Create Task</button>
                     <button type="button" class="btn" onclick="closeForm2()">Close</button>
-
                 </form>
-
             </div>
-        </div>
-        <div class="task11 col-lg-3 col-md" class="form">
 
-            <button class="addtask" onclick="openform3()"><i class="fas fa-sticky-note"></i><span class="caption">ADD NOTE</span></button>
-            +<button class="delete"><i class="fas fa-trash"></i><span class="caption">ADD NOTE</span></button>
-            <button class="edit"><i class="fas fa-pencil-alt"></i><span class="caption">ADD NOTE</span></button>
-            <div id="formu3" class="footer">
-                <form id="myform3" class="form">
+        </div>
+         <div id="testing" class="task1 col-lg-3 col-md">
+            <button class="addtask" onclick="openform3()"><i class="fas fa-sticky-note">+</i><span class="caption">ADD NOTE</span></button>
+            <button class="delete"><i class="fas fa-trash"></i><span class="caption">Delete</span></button>
+            <button class="edit"><i class="fas fa-pencil-alt"></i><span class="caption">Edit</span></button>
+            <div id="formu3" class="footer">    
+            <form id="myform3" class="form">
                     <h1>Add Note</h1>
                     <label>Title:
                     </label>
                     <br>
-                    <input type="text" name="title">
+                    <input id="title3" type="text" name="title">
                     <br>
                     <label>Description:
                     </label>
                     <br>
-                    <input type="text" name="dsecription">
+                    <input id="desc3" type="text" name="dsecription">
                     <br>
                     <label>Status:
                     </label>
                     <br>
                     <label for="status">Pending</label>
-                    <input type="radio" name="status" value="Pending">
+                    <input id="status3" type="radio" name="status" value="Pending">
                     <br>
                     <label for="status">Inprogress</label>
                     <input type="radio" name="status" value="Inprogress">
@@ -195,20 +190,19 @@
                     <label>Created At:
                     </label>
                     <br>
-                    <input type="text" name='createdat'>
+                    <input id="createdat3" type="text" name='createdat'>
                     <br>
                     <label>Priority:
                     </label>
                     <br>
-                    <input type="number" name='priority'>
+                    <input id="priority3" type="number" name='priority'>
                     <br>
 
-                    <button class="btn" type="button" onclick="sumbitform3()" name="sumbit">Create Task</button>
+                    <button id="ckt3" class="btn" type="submit">Create Task</button>
                     <button type="button" class="btn" onclick="closeForm3()">Close</button>
-
                 </form>
-
             </div>
+
         </div>
     </div>
 
