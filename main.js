@@ -68,8 +68,7 @@ function creatediv(input, desc, status, createdat, type) {
             break;
 
     }
-    div.innerHTML="<p>Title:"+input+"</p> <p>Description:"+desc+"</p><p>Status:"+status+"</p><p>Created At:"+createdat+"</p><p>Time Created:"+new Date()+"</p>";
-}
+    div.innerHTML="<p>Title: <strong>"+input+"</strong></p> <p>Description: <strong>"+desc+"</strong></p><p>Status: <strong>"+status+"</strong></p><p>Created At: <strong> "+createdat+"</strong></p><p>Time Created: <strong> "+new Date()+"</strong></p>";}
 ckt.addEventListener('click', function (e) {
     e.preventDefault();
     var input = document.querySelector('#title').value;
