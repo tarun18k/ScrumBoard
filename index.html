@@ -1,211 +1,95 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="style.css">
     <title>Agile Developer Scrum-Board</title>
-    <link rel="icon" href="favicon.ico">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/9115a5f7d8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+  
 </head>
 
 <body>
-    <div class="heading row">
-        <h1 class="heading  col-lg-3 col-md">Requirements</h1>
-        <h1 class="heading col-lg-3 col-md">Design</h1>
-        <h1 class="heading col-lg-3 col-md">Development</h1>
-        <h1 class="heading col-lg-3 col-md">Testing</h1>
-    </div>
-    <div class="tasks row">
-        <div id="requirements" class="task1 col-lg-3 col-md">
-            <button class="addtask" onclick="openform()"><i class="fas fa-sticky-note">+</i><span class="caption">ADD NOTE</span></button>
+    <div class="Profile">
+        <form class="profileform">
+            <label>ProjectName:</label>
+            <input type="text">
+            <button class="profbtn" type="submit">Submit</button>
+        </form>
+        <div class="buttons">
+
+            <h1></h1>
+            <button class="addtask"><i class="fas fa-sticky-note">+</i><span class="caption">ADD NOTE</span></button>
             <button class="delete"><i class="fas fa-trash"></i><span class="caption">Delete</span></button>
             <button class="edit"><i class="fas fa-pencil-alt"></i><span class="caption">Edit</span></button>
-            <div id="formu" class="footer">    
+        </div>
+        <div id="mainform" class="footer">
             <form id="myform" class="form">
-                    <h1>Add Note</h1>
-                    <label>Title:
-                    </label>
+                <h1>Add Note</h1>
+                <label>Title:
+                </label>
+                <br>
+                <input id="title" type="text" name="title">
+                <br>
+                <label>Description:
+                </label>
+                <br>
+                <input id="desc" type="text" name="dsecription">
+                <br>
+                <div id="status">
+                    <label>Status</label>
                     <br>
-                    <input id="title" type="text" name="title">
+                    <input type="radio" id="s0" name="status" value="Done"> Done
+                    <input type="radio" id="s1" name="status" value="Inprogress"> Inprogress
+                    <input type="radio" id="s2" name="status" value="Pending"> Pending
+                </div>
+                <br>
+                <label>Created At:
+                </label>
+                <br>
+                <input id="createdat" type="text" name='createdat'>
+                <br>
+                <label>Priority:
+                </label>
+                <br>
+                <input id="priority" type="number" name='priority'>
+                <br>
+                <div id="type">
+                    <label>Type</label>
                     <br>
-                    <label>Description:
-                    </label>
-                    <br>
-                    <input id="desc" type="text" name="dsecription">
-                    <br>
-                    <label>Status:
-                    </label>
-                    <br>
-                    <label for="status">Pending</label>
-                    <input id="status" type="radio" name="status" value="Pending">
-                    <br>
-                    <label for="status">Inprogress</label>
-                    <input type="radio" name="status" value="Inprogress">
-                    <br>
-
-                    <label for="status">Done</label>
-                    <input type="radio" name="status" value="Done">
-                    <br>
-                    <label>Created At:
-                    </label>
-                    <br>
-                    <input id="createdat" type="text" name='createdat'>
-                    <br>
-                    <label>Priority:
-                    </label>
-                    <br>
-                    <input id="priority" type="number" name='priority'>
-                    <br>
-
-                    <button id="ckt" class="btn" type="submit">Create Task</button>
-                    <button type="button" class="btn" onclick="closeForm()">Close</button>
-                </form>
-            </div>
-
+                    <input type="radio" id="r1" name="type" value="requirements" checked> Requirements
+                    <input type="radio" id="r2" name="type" value="testing"> Testing
+                    <input type="radio" id="r3" name="type" value="development"> Development
+                    <input type="radio" id="r4" name="type" value="design"> Design
+                </div>
+                <button id="ckt" class="btn" type="submit">Create Task</button>
+                <button id="close" type="button" class="btn" >Close</button>
+            </form>
         </div>
-         <div id="design" class="task1 col-lg-3 col-md">
-            <button class="addtask" onclick="openform1()"><i class="fas fa-sticky-note">+</i><span class="caption">ADD NOTE</span></button>
-            <button class="delete"><i class="fas fa-trash"></i><span class="caption">Delete</span></button>
-            <button class="edit"><i class="fas fa-pencil-alt"></i><span class="caption">Edit</span></button>
-            <div id="formu1" class="footer">    
-            <form id="myform1" class="form">
-                    <h1>Add Note</h1>
-                    <label>Title:
-                    </label>
-                    <br>
-                    <input id="title1" type="text" name="title">
-                    <br>
-                    <label>Description:
-                    </label>
-                    <br>
-                    <input id="desc1" type="text" name="dsecription">
-                    <br>
-                    <label>Status:
-                    </label>
-                    <br>
-                    <label for="status">Pending</label>
-                    <input id="status1" type="radio" name="status" value="Pending">
-                    <br>
-                    <label for="status">Inprogress</label>
-                    <input type="radio" name="status" value="Inprogress">
-                    <br>
-
-                    <label for="status">Done</label>
-                    <input type="radio" name="status" value="Done">
-                    <br>
-                    <label>Created At:
-                    </label>
-                    <br>
-                    <input id="createdat1" type="text" name='createdat'>
-                    <br>
-                    <label>Priority:
-                    </label>
-                    <br>
-                    <input id="priority1" type="number" name='priority'>
-                    <br>
-
-                    <button id="ckt1" class="btn" type="submit">Create Task</button>
-                    <button type="button" class="btn" onclick="closeForm1()">Close</button>
-                </form>
+        <hr>
+    </div>
+    <div class=" top container">
+        <div class=" note row">
+            <div id="Requirements" class=" notes col-md-6 col-lg-3">
+                <h1>Requriements</h1>
+                <hr>
             </div>
-
-        </div>
-         <div id="development" class="task1 col-lg-3 col-md">
-            <button class="addtask" onclick="openform2()"><i class="fas fa-sticky-note">+</i><span class="caption">ADD NOTE</span></button>
-            <button class="delete"><i class="fas fa-trash"></i><span class="caption">Delete</span></button>
-            <button class="edit"><i class="fas fa-pencil-alt"></i><span class="caption">Edit</span></button>
-            <div id="formu2" class="footer">    
-            <form id="myform2" class="form">
-                    <h1>Add Note</h1>
-                    <label>Title:
-                    </label>
-                    <br>
-                    <input id="title2" type="text" name="title">
-                    <br>
-                    <label>Description:
-                    </label>
-                    <br>
-                    <input id="desc2" type="text" name="dsecription">
-                    <br>
-                    <label>Status:
-                    </label>
-                    <br>
-                    <label for="status">Pending</label>
-                    <input id="status2" type="radio" name="status" value="Pending">
-                    <br>
-                    <label for="status">Inprogress</label>
-                    <input type="radio" name="status" value="Inprogress">
-                    <br>
-
-                    <label for="status">Done</label>
-                    <input type="radio" name="status" value="Done">
-                    <br>
-                    <label>Created At:
-                    </label>
-                    <br>
-                    <input id="createdat2" type="text" name='createdat'>
-                    <br>
-                    <label>Priority:
-                    </label>
-                    <br>
-                    <input id="priority2" type="number" name='priority'>
-                    <br>
-
-                    <button id="ckt2" class="btn" type="submit">Create Task</button>
-                    <button type="button" class="btn" onclick="closeForm2()">Close</button>
-                </form>
+            <div id="design" class=" notes col-md-6 col-lg-3">
+                <h1>Design</h1>
+                <hr>
             </div>
-
-        </div>
-         <div id="testing" class="task1 col-lg-3 col-md">
-            <button class="addtask" onclick="openform3()"><i class="fas fa-sticky-note">+</i><span class="caption">ADD NOTE</span></button>
-            <button class="delete"><i class="fas fa-trash"></i><span class="caption">Delete</span></button>
-            <button class="edit"><i class="fas fa-pencil-alt"></i><span class="caption">Edit</span></button>
-            <div id="formu3" class="footer">    
-            <form id="myform3" class="form">
-                    <h1>Add Note</h1>
-                    <label>Title:
-                    </label>
-                    <br>
-                    <input id="title3" type="text" name="title">
-                    <br>
-                    <label>Description:
-                    </label>
-                    <br>
-                    <input id="desc3" type="text" name="dsecription">
-                    <br>
-                    <label>Status:
-                    </label>
-                    <br>
-                    <label for="status">Pending</label>
-                    <input id="status3" type="radio" name="status" value="Pending">
-                    <br>
-                    <label for="status">Inprogress</label>
-                    <input type="radio" name="status" value="Inprogress">
-                    <br>
-
-                    <label for="status">Done</label>
-                    <input type="radio" name="status" value="Done">
-                    <br>
-                    <label>Created At:
-                    </label>
-                    <br>
-                    <input id="createdat3" type="text" name='createdat'>
-                    <br>
-                    <label>Priority:
-                    </label>
-                    <br>
-                    <input id="priority3" type="number" name='priority'>
-                    <br>
-
-                    <button id="ckt3" class="btn" type="submit">Create Task</button>
-                    <button type="button" class="btn" onclick="closeForm3()">Close</button>
-                </form>
+            <div id="development" class=" notes col-md-6 col-lg-3">
+                <h1>Development</h1>
+                <hr>
             </div>
-
+            <div id="testing" class=" notes col-md-6 col-lg-3">
+                <h1>Testing</h1>
+                <hr>
+            </div>
         </div>
     </div>
-
+    <div class="footer">
+    </div>
     <script src="main.js"></script>
 </body>
 

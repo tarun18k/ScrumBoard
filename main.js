@@ -1,203 +1,147 @@
-function openform() {
-    document.getElementById("formu").style.display = "block";
-}
+var heading = document.querySelector('h1');
+var form = document.querySelector('.profileform');
+var x = document.querySelector('.profbtn');
+var name = localStorage.getItem('proj') ? JSON.parse(localStorage.getItem('proj')) : null;
+localStorage.setItem('proj', JSON.stringify(name));
+const n = JSON.parse(localStorage.getItem('proj'));
 
-function closeForm() {
-   document.getElementById("formu").style.display =  "none";
-}
-
-function openform1() {
-    document.getElementById("formu1").style.display = "block";
-}
-
-function openform2() {
-    document.getElementById("formu2").style.display = "block";
-}
-
-function openform3() {
-    document.getElementById("formu3").style.display = "block";
-}
-
-function closeForm1() {
-    document.getElementById("formu1").style.display = "none";
-}
-
-function closeForm2() {
-    document.getElementById("formu2").style.display = "none";
-}
-
-function closeForm3() {
-    document.getElementById("formu3").style.display = "none";
-}
-
-var form = document.getElementById('myform');
-var maindiv = document.getElementById('requirements');
-var button = document.getElementById('ckt');
-var inputtitle = document.getElementById('title');
-var inputdesc = document.getElementById('desc');
-var inputprior = document.getElementById('priority');
-var inputstatus = document.getElementById('status');
-var inputcat = document.getElementById('createdat');
-var style=document.createElement('style');
-
-var form1 = document.getElementById('myform1');
-var maindiv1 = document.getElementById('design');
-var button1 = document.getElementById('ckt1');
-var inputtitle1 = document.getElementById('title1');
-var inputdesc1 = document.getElementById('desc1');
-var inputprior1 = document.getElementById('priority1');
-var inputstatus1 = document.getElementById('status1');
-var inputcat1 = document.getElementById('createdat1');
-
-
-var form2 = document.getElementById('myform2');
-var maindiv2 = document.getElementById('development');
-var button2 = document.getElementById('ckt2');
-var inputtitle2 = document.getElementById('title2');
-var inputdesc2 = document.getElementById('desc2');
-var inputprior2 = document.getElementById('priority2');
-var inputstatus2 = document.getElementById('status2');
-var inputcat2 = document.getElementById('createdat2');
-
-
-var form3 = document.getElementById('myform3');
-var maindiv3 = document.getElementById('testing');
-var button3 = document.getElementById('ckt3');
-var inputtitle3 = document.getElementById('title3');
-var inputdesc3 = document.getElementById('desc3');
-var inputprior3 = document.getElementById('priority3');
-var inputstatus3 = document.getElementById('status3');
-var inputcat3 = document.getElementById('createdat3');
-
-
-
-
-const divmaker = (text1, text2, text3) => {
-    var div = document.createElement('div');
-    div.className ="sticky";
-    maindiv.append(div);
-    var newContent = document.createTextNode("title: " + text1 );
-    div.appendChild(newContent);
-    newContent=document.createElement('br');
-    div.appendChild(newContent);
-    newContent = document.createTextNode ("Description:" + text2);
-    div.appendChild(newContent);
-    newContent=document.createElement('br');
-    div.appendChild(newContent);
-    newContent = document.createTextNode("Status: " + text3);
-    div.appendChild(newContent);
-    newContent=document.createElement('br');
-    div.appendChild(newContent);
-    newContent = document.createTextNode("Created at:" + new Date())
-    div.appendChild(newContent);
-    newContent=document.createElement('br');
-    div.appendChild(newContent);  
-}
-const divmaker1 = (text1, text2, text3) => {
-    var div = document.createElement('div');
-    div.className ="sticky";
-    maindiv1.append(div);
-    var newContent = document.createTextNode("title: " + text1 );
-    div.appendChild(newContent);
-    newContent=document.createElement('br');
-    div.appendChild(newContent);
-    newContent = document.createTextNode ("Description:" + text2);
-    div.appendChild(newContent);
-    newContent=document.createElement('br');
-    div.appendChild(newContent);
-    newContent = document.createTextNode("Status: " + text3);
-    div.appendChild(newContent);
-    newContent=document.createElement('br');
-    div.appendChild(newContent);
-    newContent = document.createTextNode("Created at:" + new Date())
-    div.appendChild(newContent);
-    newContent=document.createElement('br');
-    div.appendChild(newContent);  
-}
-const divmaker2 = (text1, text2, text3) => {
-    var div = document.createElement('div');
-    div.className ="sticky";
-    maindiv2.append(div);
-    var newContent = document.createTextNode("title: " + text1 );
-    div.appendChild(newContent);
-    newContent=document.createElement('br');
-    div.appendChild(newContent);
-    newContent = document.createTextNode ("Description:" + text2);
-    div.appendChild(newContent);
-    newContent=document.createElement('br');
-    div.appendChild(newContent);
-    newContent = document.createTextNode("Status: " + text3);
-    div.appendChild(newContent);
-    newContent=document.createElement('br');
-    div.appendChild(newContent);
-    newContent = document.createTextNode("Created at:" + new Date())
-    div.appendChild(newContent);
-    newContent=document.createElement('br');
-    div.appendChild(newContent);  
-}
-const divmaker3 = (text1, text2, text3) => {
-    var div = document.createElement('div');
-    div.className ="sticky";
-    maindiv3.append(div);
-    var newContent = document.createTextNode("title: " + text1 );
-    div.appendChild(newContent);
-    newContent=document.createElement('br');
-    div.appendChild(newContent);
-    newContent = document.createTextNode ("Description:" + text2);
-    div.appendChild(newContent);
-    newContent=document.createElement('br');
-    div.appendChild(newContent);
-    newContent = document.createTextNode("Status: " + text3);
-    div.appendChild(newContent);
-    newContent=document.createElement('br');
-    div.appendChild(newContent);
-    newContent = document.createTextNode("Created at:" + new Date())
-    div.appendChild(newContent);
-    newContent=document.createElement('br');
-    div.appendChild(newContent);  
-}
-form.addEventListener('submit',function (e) {
-    e.preventDefault()
-
-    divmaker(inputtitle.value,inputdesc.value,inputstatus.value);
-    inputtitle.value = '';
-    inputdesc.value = '';
-    inputstatus.value = '';
-    inputcat.value = '';
-    closeForm();
-
+x.addEventListener('click', function (E) {
+    E.preventDefault();
+    var projectname = document.querySelector('input').value;
+    name = projectname;
+    localStorage.setItem('proj', JSON.stringify(name));
+    forminvisible(projectname);
 });
-form1.addEventListener('submit',function (e) {
-    e.preventDefault()
 
-    divmaker1(inputtitle1.value,inputdesc1.value,inputstatus1.value);
-    inputtitle.value = '';
-    inputdesc.value = '';
-    inputstatus.value = '';
-    inputcat.value = '';
-    closeForm1();
 
+function forminvisible(value) {
+    form.classList.add("profileforma");
+    heading.innerHTML = "Project :  " + value;
+}
+
+var addtsk = document.querySelector('.addtask');
+var mainform = document.querySelector('#mainform');
+
+function forminvisiblemain() {
+    mainform.style.display = "none";
+
+}
+
+function visibleform() {
+    mainform.style.display = "block";
+}
+addtsk.addEventListener('click', function () {
+    visibleform();
 });
-form2.addEventListener('submit',function (e) {
-    e.preventDefault()
 
-    divmaker2(inputtitle2.value,inputdesc2.value,inputstatus2.value);
-    inputtitle.value = '';
-    inputdesc.value = '';
-    inputstatus.value = '';
-    inputcat.value = '';
-    closeForm2();
 
-});
-form3.addEventListener('submit',function (e) {
-    e.preventDefault()
+var ckt = document.querySelector('#ckt');
 
-    divmaker3(inputtitle3.value,inputdesc3.value,inputstatus3.value);
-    inputtitle.value = '';
-    inputdesc.value = '';
-    inputstatus.value = '';
-    inputcat.value = '';
-    closeForm3();
+let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+localStorage.setItem('items', JSON.stringify(itemsArray));
+const data = JSON.parse(localStorage.getItem('items'));
+
+function creatediv(input, desc, status, createdat, type) {
+    var div = document.createElement('div');
+    div.className = "sticky";
+    switch (type) {
+        case "requirements":
+            reqe.append(div);
+            break;
+        case "testing":
+            teste.append(div);
+            break;
+        case "development":
+            deve.append(div);
+            break;
+        case "design":
+            dese.append(div);
+            break;
+
+    }
+
+    var newContent = document.createTextNode("title: " + input);
+    div.appendChild(newContent);
+    newContent = document.createElement('br');
+    div.appendChild(newContent);
+    newContent = document.createTextNode("Description:" + desc);
+    div.appendChild(newContent);
+    newContent = document.createElement('br');
+    div.appendChild(newContent);
+    newContent = document.createTextNode("Status: " + status);
+    div.appendChild(newContent);
+    newContent = document.createElement('br');
+    div.appendChild(newContent);
+    newContent = document.createTextNode("Created at:" + createdat);
+    div.appendChild(newContent);
+    newContent = document.createElement('br');
+    div.appendChild(newContent);
+    newContent = document.createTextNode("Time:" + new Date());
+    div.appendChild(newContent);
+}
+ckt.addEventListener('click', function (e) {
+    e.preventDefault();
+    var input = document.querySelector('#title').value;
+    var desc = document.querySelector('#desc').value;
+
+    if (document.getElementById('s0').checked == true) {
+        var status = document.getElementById('s0').value;
+    } else if (document.getElementById('s1').checked == true) {
+        var status = document.getElementById('s1').value;
+    } else {
+        var status = document.getElementById('s2').value;
+    }
+
+    var createdat = document.querySelector('#createdat').value;
+    var priority = document.querySelector('#priority').value;
+    var type;
+    if (document.getElementById('r1').checked == true) {
+        var type = document.getElementById('r1').value;
+    } else if (document.getElementById('r2').checked == true) {
+        var type = document.getElementById('r2').value;
+    } else if (document.getElementById('r3').checked == true) {
+        var type = document.getElementById('r3').value;
+    } else {
+        var type = document.getElementById('r4').value;
+    }
+    var div1 = new Adddiv(input, desc, status, createdat, priority, type);
+    itemsArray.push(div1);
+
+    localStorage.setItem('items', JSON.stringify(itemsArray));
+
+    creatediv(input, desc, status, createdat, type);
+
+    forminvisiblemain();
+
+    input.value = " ";
+    desc.value = " ";
+    status.value = " ";
+    createdat.value = " ";
+    priority.value = " ";
+    type.value = " ";
 
 });
 
+function Adddiv(input, desc, status, createdat, priority, type) {
+    this.title = input;
+    this.desc = desc;
+    this.status = status;
+    this.createdat = createdat;
+    this.priority = priority;
+    this.type = type;
+}
+
+var reqe = document.querySelector('#Requirements');
+var teste = document.querySelector('#testing');
+var deve = document.querySelector('#development');
+var dese = document.querySelector('#design');
+
+
+data.forEach(item => {
+    creatediv(item.title, item.desc, item.status, item.createdat, item.type);
+});
+
+var del = document.querySelector('.delete');
+del.addEventListener('click', function () {
+    localStorage.clear();
+});

@@ -13,86 +13,75 @@
     
     
 }
-.heading{
-    text-align: center;
-    font-family: 'Montserrat-light',sans-serif;
+h1{
+    color: #dbedf3;
+      font-family: "Montserrat",sans-serif;
     font-size: 1.5rem;
-    border-bottom: 0.1rem;
-    border-bottom-color: black;
-    border-bottom-style: solid;
-    height:auto;
-    background-color: gray;
+     text-align: center;
+}
+body{
+    background-color: #283149;
+    margin: 0px;
+    padding: 5px;
+}
+.profile{
+    margin-top: 5px;
+    margin-right: 5px;
     margin-bottom: 0px;
-   
-}
-.tasks{
-    background-color:dimgrey;
-    height: 100%;
-    margin-top: 0px;
-    overflow:auto;
-}
-.task1{
-    height: 100%;
-    border-right:1px;
-    border-right-style: solid;
-    border-right-color: black;
-    padding:5px;
-    overflow:auto;
-    
-}
-.task11{
-    height: 100%;
-    padding:5px;
-    overflow: auto;
-  
+    color: #dbedf3;
+    text-align: left;
+    font-size: 1rem;
+    height:auto;
 }
 .addtask{
-    font-size: 2rem;
-    color: seagreen;
     background-color: transparent;
-    border: none;
-}
-.addtask:hover{
-    font-size: 2.25rem;
-    color: yellowgreen;
+    color:cadetblue;
+    border-style: none;
+    font-size:1rem;
+    margin-right: 3px;
+    margin-top: 
 }
 .delete{
-    font-size: 2rem;
     background-color: transparent;
-    border: none;
+    color:black;
+    border-style: none;
+    font-size: 1rem;
+    margin-right: 3px;
+}
+.edit{
+    background-color: transparent;
+    color:yellow;
+    border-style: none;
+    font-size: 1rem;
+    margin-right: 3px;
+}
+.profileform{
+    margin-bottom: 0px;
+     font-family: "Montserrat",sans-serif;
+    text-align: right;
     
 }
-.delete:hover
-{
-    font-size: 2.25rem;
-}
-.edit
-{
-    font-size: 2rem;
-    background-color: transparent;
-    border: none;
-    color:darkblue;
-    
-}
-.edit:hover{
-    font-size: 2.25rem;
-}
-.caption
+.profileforma
 {
     display: none;
+    
 }
-.footer {
+.profilea{
+   
+    font-family: "Montserrat",sans-serif;
+    
+}
+#mainform {
   margin: auto;
-  width: 100%;
+  width: 50%;
   padding: 3rem 2rem;
-    overflow:auto;
-    height: 100%;
-      display: none;   
+    height: auto;  
+    display: none;
 }
 
 .form {
   padding: 2rem;
-  background: #f4f4f4;
+  
     
 }
 
@@ -122,4 +111,30 @@
 .btn:hover {
   background: #444;
 }
-
+hr{
+    border-bottom: 3px;
+    border-color: cadetblue;
+    margin: 0px;
+}
+.top{
+   max-width: 100%;
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    overflow:auto;
+}
+.note{
+   max-width: 100%;
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    overflow:auto;
+}
+.notes{
+  height: 100%;
+    border-right:3px;
+    border-right-style: solid;
+    border-right-color: black;
+    padding:5px;
+    overflow:auto;
+}
