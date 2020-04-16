@@ -1,15 +1,17 @@
 var heading = document.querySelector('h1');
 var form = document.querySelector('.profileform');
 var x = document.querySelector('.profbtn');
-var name = localStorage.getItem('proj') ? JSON.parse(localStorage.getItem('proj')) : null;
+let name = localStorage.getItem('proj') ? JSON.parse(localStorage.getItem('proj')) : [];
 localStorage.setItem('proj', JSON.stringify(name));
 const n = JSON.parse(localStorage.getItem('proj'));
 
 x.addEventListener('click', function (E) {
     E.preventDefault();
     var projectname = document.querySelector('input').value;
-    name = projectname;
+    name.push(projectname);
+
     localStorage.setItem('proj', JSON.stringify(name));
+
     forminvisible(projectname);
 });
 
@@ -18,6 +20,13 @@ function forminvisible(value) {
     form.classList.add("profileforma");
     heading.innerHTML = "Project :  " + value;
 }
+n.forEach(item => {
+    forminvisible(item);
+});
+
+
+
+
 
 var addtsk = document.querySelector('.addtask');
 var mainform = document.querySelector('#mainform');
@@ -59,25 +68,7 @@ function creatediv(input, desc, status, createdat, type) {
             break;
 
     }
-
-    var newContent = document.createTextNode("title: " + input);
-    div.appendChild(newContent);
-    newContent = document.createElement('br');
-    div.appendChild(newContent);
-    newContent = document.createTextNode("Description:" + desc);
-    div.appendChild(newContent);
-    newContent = document.createElement('br');
-    div.appendChild(newContent);
-    newContent = document.createTextNode("Status: " + status);
-    div.appendChild(newContent);
-    newContent = document.createElement('br');
-    div.appendChild(newContent);
-    newContent = document.createTextNode("Created at:" + createdat);
-    div.appendChild(newContent);
-    newContent = document.createElement('br');
-    div.appendChild(newContent);
-    newContent = document.createTextNode("Time:" + new Date());
-    div.appendChild(newContent);
+    div.innerHTML="<p>Title:"+input+"</p> <p>Description:"+desc+"</p><p>Status:"+status+"</p><p>Created At:"+createdat+"</p><p>Time Created:"+new Date()+"</p>";
 }
 ckt.addEventListener('click', function (e) {
     e.preventDefault();
@@ -119,6 +110,8 @@ ckt.addEventListener('click', function (e) {
     createdat.value = " ";
     priority.value = " ";
     type.value = " ";
+     window.location.reload();
+        
 
 });
 
@@ -137,11 +130,14 @@ var deve = document.querySelector('#development');
 var dese = document.querySelector('#design');
 
 
+
 data.forEach(item => {
     creatediv(item.title, item.desc, item.status, item.createdat, item.type);
 });
 
+
 var del = document.querySelector('.delete');
 del.addEventListener('click', function () {
     localStorage.clear();
+    window.location.reload();
 });

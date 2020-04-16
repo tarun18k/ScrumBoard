@@ -1,17 +1,22 @@
 .sticky{
     position: static;
-    width:75%;
+    width:90%;
     height:auto;
     font-family: 'Montserrat',sans-serif;
     border: 2px;
     border-style: solid;
-    background-color: yellowgreen;
+    background-color: #dbedf3;
     display: block;
     padding: 2px;
-    margin:2px 2px;
+    margin:5px 5px;
     
     
     
+}
+p{
+    color: black;
+    font-size:0.75rem;
+    font-family: "Montserrat",sans-serif;
 }
 h1{
     color: #dbedf3;
@@ -138,3 +143,4 @@ hr{
     padding:5px;
     overflow:auto;
 }
+#
