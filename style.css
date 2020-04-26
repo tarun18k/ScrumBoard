@@ -53,6 +53,14 @@ body{
     font-size: 1rem;
     margin-right: 3px;
 }
+.deletenote{
+     background-color: transparent;
+    color:black;
+    border-style: none;
+    font-size: 1rem;
+    margin-right: 3px;
+    
+}
 .edit{
     background-color: transparent;
     color:yellow;
@@ -82,6 +90,14 @@ body{
   padding: 3rem 2rem;
     height: auto;  
     display: none;
+}
+#editform
+{
+    margin: auto;
+  width: 50%;
+  padding: 3rem 2rem;
+    height: auto;  
+    display: none; 
 }
 
 .form {

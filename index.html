@@ -21,8 +21,7 @@
 
             <h1></h1>
             <button class="addtask"><i class="fas fa-sticky-note">+</i><span class="caption">ADD NOTE</span></button>
-            <button class="delete"><i class="fas fa-trash"></i><span class="caption">Delete</span></button>
-            <button class="edit"><i class="fas fa-pencil-alt"></i><span class="caption">Edit</span></button>
+            <button class="delete"><i class="fas fa-trash"></i><span class="caption">ClearBoard</span></button>
         </div>
         <div id="mainform" class="footer">
             <form id="myform" class="form">
@@ -45,11 +44,6 @@
                     <input type="radio" id="s2" name="status" value="Pending"> Pending
                 </div>
                 <br>
-                <label>Created At:
-                </label>
-                <br>
-                <input id="createdat" type="text" name='createdat'>
-                <br>
                 <label>Priority:
                 </label>
                 <br>
@@ -69,6 +63,46 @@
         </div>
         <hr>
     </div>
+        <div id="editform" class="footer">
+            <form id="myform" class="form">
+                <h1>Edit Note</h1>
+                <label>Title:
+                </label>
+                <br>
+                <input id="title" type="text" name="title">
+                <br>
+                <label>Description:
+                </label>
+                <br>
+                <input id="desc" type="text" name="dsecription">
+                <br>
+                <div id="status">
+                    <label>Status</label>
+                    <br>
+                    <input type="radio" id="s0" name="status" value="Done"> Done
+                    <input type="radio" id="s1" name="status" value="Inprogress"> Inprogress
+                    <input type="radio" id="s2" name="status" value="Pending"> Pending
+                </div>
+                <br>
+                <label>Priority:
+                </label>
+                <br>
+                <input id="priority" type="number" name='priority'>
+                <br>
+                <div id="type">
+                    <label>Type</label>
+                    <br>
+                    <input type="radio" id="r1" name="type" value="requirements" checked> Requirements
+                    <input type="radio" id="r2" name="type" value="testing"> Testing
+                    <input type="radio" id="r3" name="type" value="development"> Development
+                    <input type="radio" id="r4" name="type" value="design"> Design
+                </div>
+                <button id="ckt" class="btn" type="submit">Edit Task</button>
+                <button id="close" type="button" class="btn" >Close</button>
+            </form>
+        </div>
+        <hr>
+    
     <div class=" top container">
         <div class=" note row">
             <div id="Requirements" class=" notes col-md-6 col-lg-3">
