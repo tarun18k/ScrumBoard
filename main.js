@@ -180,6 +180,10 @@ function creatediv(input, desc, status, type, id) {
 ckt.addEventListener('click', function (e) {
     e.preventDefault();
     var input = document.querySelector('#title').value;
+    while(input=="")
+        {
+            input=prompt("enter title");
+        }
     var desc = document.querySelector('#desc').value;
     var status;
     if (document.getElementById('s0').checked == true) {
@@ -190,6 +194,10 @@ ckt.addEventListener('click', function (e) {
         status = document.getElementById('s2').value;
     }
     var priority = document.querySelector('#priority').value;
+    while(priority=="")
+        {
+            priority=prompt("enter Priority Number");
+        }
     var type;
     if (document.getElementById('r1').checked == true) {
         type = document.getElementById('r1').value;
