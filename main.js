@@ -1,6 +1,7 @@
 //Divisions Selection
 
-var reqe = document.querySelector('#Requirements');var teste = document.querySelector('#testing');
+var reqe = document.querySelector('#Requirements');
+var teste = document.querySelector('#testing');
 var deve = document.querySelector('#development');
 var dese = document.querySelector('#design');
 var did = -1;
@@ -22,38 +23,38 @@ x.addEventListener('click', function (E) {
 });
 
 function forminvisible(value) {
-    if(value!=null)
-    {
-    form.classList.add("profileforma");
-    heading.innerHTML = "Project :  " + value;
-}
+    if (value != null) {
+        form.classList.add("profileforma");
+        heading.innerHTML = "Project :  " + value;
+    }
 }
 forminvisible(localStorage.getItem("ProjectName"));
 // project nameevents
 
+
+
+
+
+
+
+
+
 //EditFormButton & Events
 
 
-var editform=document.querySelector('#editform');
-function editformv(){
-    editform.style.display="block";
+var editform = document.querySelector('#editform');
+
+function editformv() {
+    editform.style.display = "block";
+}
+
+function editformmin() {
+    editform.style.disply = "none";
 }
 
 
 
-function editfromin()
-{
-    editform.style.disply="none;"
-}
-
-var ekt=document.querySelector('#ekt');
-
-
-
-
-
-
-// Create Task Form & Events
+//Create Task Form & Events
 var addtsk = document.querySelector('.addtask');
 var mainform = document.querySelector('#mainform');
 
@@ -69,7 +70,7 @@ function visibleform() {
 addtsk.addEventListener('click', function () {
     visibleform();
 });
-  
+
 
 
 
@@ -84,9 +85,48 @@ var data = JSON.parse(localStorage.getItem('items'));
 
 var del;
 var e;
-function creatediv(input, desc, status, type,id) {
+var edv;
+var inpute, desce, statuse, prioritye, typee;
+var ekt = document.querySelector('#ekt');
+ekt.addEventListener('click', function (event) {
+    inpute = document.querySelector('#etitle').value;
+    desce = document.querySelector('#edesc').value;
+    if (document.getElementById('es0').checked == true) {
+        statuse = document.getElementById('es0').value;
+    } else if (document.getElementById('es1').checked == true) {
+        statuse = document.getElementById('es1').value;
+    } else {
+        statuse = document.getElementById('es2').value;
+    }
+    prioritye = document.querySelector('#epriority').value;
+    if (document.getElementById('er1').checked == true) {
+        typee = document.getElementById('er1').value;
+    } else if (document.getElementById('er2').checked == true) {
+        typee = document.getElementById('er2').value;
+    } else if (document.getElementById('er3').checked == true) {
+        typee = document.getElementById('er3').value;
+    } else {
+        typee = document.getElementById('er4').value;
+    }
+
+    editformmin();
+    for (var j = 0; j < itemsArray.length; j++) {
+        if (itemsArray[j].id == edv) {
+            itemsArray[j].title = inpute;
+            itemsArray[j].desc = desce;
+            itemsArray[j].status = statuse;
+            itemsArray[j].priority = prioritye;
+            itemsArray[j].type = typee;
+            break;
+
+        }
+    }
+    localStorage.setItem('items', JSON.stringify(itemsArray));
+});
+
+function creatediv(input, desc, status, type, id) {
     var div = document.createElement('div');
-    div.setAttribute('ide',id);
+    div.setAttribute('ide', id);
     div.className = "sticky";
     switch (type) {
         case "requirements":
@@ -103,36 +143,36 @@ function creatediv(input, desc, status, type,id) {
             break;
 
     }
-    div.innerHTML="<p>Title: <strong>"+input+"</strong></p> <p>Description: <strong>"+desc+"</strong></p><p>Status: <strong>"+status+"</strong></p><p>Created At: <strong> "+new Date()+"</strong></p><button class='deletenote'><i class='fas fa-trash'></i><span class='caption'>DeleteNote</span></button><button class='edit'><i class='fas fa-pencil-alt'></i><span class='caption'>Edit</span></button>";
-    del=document.querySelectorAll('.deletenote');
-    for(var i=0;i<del.length;i++)
-        {
-            del[i].addEventListener('click', function () {
-                 this.parentNode.parentNode.removeChild(this.parentNode);
-                 for(var j=0;j<itemsArray.length;j++)
-        {
-            if(itemsArray[j].id==this.parentNode.getAttribute('ide'))
-                {
-                    itemsArray.splice(j,1);
-                      localStorage.setItem('items', JSON.stringify(itemsArray));
+    div.innerHTML = "<p>Title: <strong>" + input + "</strong></p> <p>Description: <strong>" + desc + "</strong></p><p>Status: <strong>" + status + "</strong></p><p>Created At: <strong> " + new Date() + "</strong></p><button class='deletenote'><i class='fas fa-trash'></i><span class='caption'>DeleteNote</span></button><button class='edit'><i class='fas fa-pencil-alt'></i><span class='caption'>Edit</span></button>";
+    del = document.querySelectorAll('.deletenote');
+    for (var i = 0; i < del.length; i++) {
+        del[i].addEventListener('click', function () {
+            for (var j = 0; j < itemsArray.length; j++) {
+                if (itemsArray[j].id == this.parentNode.getAttribute('ide')) {
+                    itemsArray.splice(j, 1);
+                    localStorage.setItem('items', JSON.stringify(itemsArray));
                     break;
                 }
-        }
-            
-                });
-  
-        }    
-    
-    
-    e=document.querySelectorAll('.edit');
-    for(var i=0;i<e.length;i++)
-        {
-            e[i].addEventListener('click',function()
-                                  {
-                editformv();
-            });
-        }
+            }
+            window.location.reload();
+
+        });
+
+    }
+    e = document.querySelectorAll('.edit');
+    for (var i = 0; i < e.length; i++) {
+        e[i].addEventListener('click', function () {
+
+            editformv();
+            edv = this.parentNode.getAttribute('ide');
+
+
+        });
+    }
 }
+
+
+
 
 
 
@@ -141,53 +181,58 @@ ckt.addEventListener('click', function (e) {
     e.preventDefault();
     var input = document.querySelector('#title').value;
     var desc = document.querySelector('#desc').value;
-
+    var status;
     if (document.getElementById('s0').checked == true) {
-        var status = document.getElementById('s0').value;
+        status = document.getElementById('s0').value;
     } else if (document.getElementById('s1').checked == true) {
-        var status = document.getElementById('s1').value;
+        status = document.getElementById('s1').value;
     } else {
-        var status = document.getElementById('s2').value;
+        status = document.getElementById('s2').value;
     }
     var priority = document.querySelector('#priority').value;
     var type;
     if (document.getElementById('r1').checked == true) {
         type = document.getElementById('r1').value;
     } else if (document.getElementById('r2').checked == true) {
-         type = document.getElementById('r2').value;
+        type = document.getElementById('r2').value;
     } else if (document.getElementById('r3').checked == true) {
-     type = document.getElementById('r3').value;
+        type = document.getElementById('r3').value;
     } else {
-     type = document.getElementById('r4').value;
+        type = document.getElementById('r4').value;
     }
-    did=did+1;
-    var div1 = new Adddiv(input, desc, status,priority, type,did);
+    did = did + 1;
+    var div1 = new Adddiv(input, desc, status, priority, type, did);
+
     itemsArray.push(div1);
+    itemsArray.sort(function (a, b) {
+        return a.priority - b.priority
+    });
 
     localStorage.setItem('items', JSON.stringify(itemsArray));
     localStorage.setItem('did', JSON.stringify(did));
-    creatediv(input, desc, status, type,did);
+    creatediv(input, desc, status, type, did);
 
-   forminvisiblemain();
+    forminvisiblemain();
 
     input.value = " ";
     desc.value = " ";
     status.value = " ";
     priority.value = " ";
     type.value = " ";
-           window.location.reload();
+    window.location.reload();
 
 });
-var d=JSON.parse(localStorage.getItem('did'));
-function id()
-{
+var d = JSON.parse(localStorage.getItem('did'));
 
-did=d;
+function id() {
+
+    did = d;
 }
 id();
-function Adddiv(input, desc, status,  priority, type,id) {
+
+function Adddiv(input, desc, status, priority, type, id) {
     this.title = input;
-    this.id=id;
+    this.id = id;
     this.desc = desc;
     this.status = status;
     this.priority = priority;
@@ -195,15 +240,15 @@ function Adddiv(input, desc, status,  priority, type,id) {
 }
 
 data.forEach(lse);
-function lse(item){
-     creatediv(item.title, item.desc, item.status,item.type,item.id);   
+
+function lse(item) {
+    creatediv(item.title, item.desc, item.status, item.type, item.id);
 }
-var dela=document.querySelector('.delete');
-dela.addEventListener('click',function()
-                     {
-      localStorage.clear();
-    did=-1;
-    localStorage.setItem('did',JSON.stringify(did));
+var dela = document.querySelector('.delete');
+dela.addEventListener('click', function () {
+    localStorage.clear();
+    did = -1;
+    localStorage.setItem('did', JSON.stringify(did));
     window.location.reload();
 
 });
