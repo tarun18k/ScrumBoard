@@ -1,12 +1,10 @@
 //Divisions Selection
 
-var reqe = document.querySelector('#Requirements');
-var teste = document.querySelector('#testing');
+var reqe = document.querySelector('#Requirements');var teste = document.querySelector('#testing');
 var deve = document.querySelector('#development');
 var dese = document.querySelector('#design');
+var did = -1;
 // 
-
-
 //top Container 
 var heading = document.querySelector('h1');
 var form = document.querySelector('.profileform');
@@ -48,6 +46,7 @@ function editfromin()
     editform.style.disply="none;"
 }
 
+var ekt=document.querySelector('#ekt');
 
 
 
@@ -79,15 +78,15 @@ addtsk.addEventListener('click', function () {
 
 
 var ckt = document.querySelector('#ckt');
-
 var itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
 localStorage.setItem('items', JSON.stringify(itemsArray));
 var data = JSON.parse(localStorage.getItem('items'));
 
 var del;
 var e;
-function creatediv(input, desc, status, type) {
+function creatediv(input, desc, status, type,id) {
     var div = document.createElement('div');
+    div.setAttribute('ide',id);
     div.className = "sticky";
     switch (type) {
         case "requirements":
@@ -108,13 +107,21 @@ function creatediv(input, desc, status, type) {
     del=document.querySelectorAll('.deletenote');
     for(var i=0;i<del.length;i++)
         {
-            del[i].addEventListener('click', function (e) {
+            del[i].addEventListener('click', function () {
                  this.parentNode.parentNode.removeChild(this.parentNode);
+                 for(var j=0;j<itemsArray.length;j++)
+        {
+            if(itemsArray[j].id==this.parentNode.getAttribute('ide'))
+                {
+                    itemsArray.splice(j,1);
+                      localStorage.setItem('items', JSON.stringify(itemsArray));
+                    break;
+                }
+        }
+            
                 });
   
-        }
-    
-    
+        }    
     
     
     e=document.querySelectorAll('.edit');
@@ -126,8 +133,6 @@ function creatediv(input, desc, status, type) {
             });
         }
 }
-
-
 
 
 
@@ -155,12 +160,13 @@ ckt.addEventListener('click', function (e) {
     } else {
      type = document.getElementById('r4').value;
     }
-    var div1 = new Adddiv(input, desc, status,priority, type);
+    did=did+1;
+    var div1 = new Adddiv(input, desc, status,priority, type,did);
     itemsArray.push(div1);
 
     localStorage.setItem('items', JSON.stringify(itemsArray));
-
-    creatediv(input, desc, status, type);
+    localStorage.setItem('did', JSON.stringify(did));
+    creatediv(input, desc, status, type,did);
 
    forminvisiblemain();
 
@@ -169,13 +175,19 @@ ckt.addEventListener('click', function (e) {
     status.value = " ";
     priority.value = " ";
     type.value = " ";
-     window.location.reload();
-        
+           window.location.reload();
 
 });
+var d=JSON.parse(localStorage.getItem('did'));
+function id()
+{
 
-function Adddiv(input, desc, status,  priority, type) {
+did=d;
+}
+id();
+function Adddiv(input, desc, status,  priority, type,id) {
     this.title = input;
+    this.id=id;
     this.desc = desc;
     this.status = status;
     this.priority = priority;
@@ -184,14 +196,14 @@ function Adddiv(input, desc, status,  priority, type) {
 
 data.forEach(lse);
 function lse(item){
-     creatediv(item.title, item.desc, item.status,item.type);   
+     creatediv(item.title, item.desc, item.status,item.type,item.id);   
 }
-
-
 var dela=document.querySelector('.delete');
 dela.addEventListener('click',function()
                      {
       localStorage.clear();
+    did=-1;
+    localStorage.setItem('did',JSON.stringify(did));
     window.location.reload();
 
 });
