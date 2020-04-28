@@ -32,8 +32,11 @@ forminvisible(localStorage.getItem("ProjectName"));
 // project nameevents
 
 
+document.querySelectorAll(".close")[0].addEventListener('click',function()
+{
+    forminvisiblemain();
 
-
+});
 
 
 
@@ -49,9 +52,13 @@ function editformv() {
 }
 
 function editformmin() {
-    editform.style.disply = "none";
+    editform.style.display = "none";
 }
+document.querySelectorAll(".close")[1].addEventListener('click',function()
+{
+    editform.style.display = "none";
 
+});
 
 
 //Create Task Form & Events
@@ -86,37 +93,40 @@ var data = JSON.parse(localStorage.getItem('items'));
 var del;
 var e;
 var edv;
-var inpute, desce, statuse, prioritye, typee;
+var input, desc, status, priority, type;
 var ekt = document.querySelector('#ekt');
 ekt.addEventListener('click', function (event) {
-    inpute = document.querySelector('#etitle').value;
-    desce = document.querySelector('#edesc').value;
+
+
+    
+    input = document.querySelector('#etitle').value;
+    desc = document.querySelector('#edesc').value;
     if (document.getElementById('es0').checked == true) {
-        statuse = document.getElementById('es0').value;
+        status = document.getElementById('es0').value;
     } else if (document.getElementById('es1').checked == true) {
-        statuse = document.getElementById('es1').value;
+        status = document.getElementById('es1').value;
     } else {
-        statuse = document.getElementById('es2').value;
+        status = document.getElementById('es2').value;
     }
     prioritye = document.querySelector('#epriority').value;
     if (document.getElementById('er1').checked == true) {
-        typee = document.getElementById('er1').value;
+        type = document.getElementById('er1').value;
     } else if (document.getElementById('er2').checked == true) {
-        typee = document.getElementById('er2').value;
+        type = document.getElementById('er2').value;
     } else if (document.getElementById('er3').checked == true) {
-        typee = document.getElementById('er3').value;
+        type = document.getElementById('er3').value;
     } else {
-        typee = document.getElementById('er4').value;
+        type = document.getElementById('er4').value;
     }
 
     editformmin();
     for (var j = 0; j < itemsArray.length; j++) {
         if (itemsArray[j].id == edv) {
-            itemsArray[j].title = inpute;
-            itemsArray[j].desc = desce;
-            itemsArray[j].status = statuse;
-            itemsArray[j].priority = prioritye;
-            itemsArray[j].type = typee;
+            itemsArray[j].title = input;
+            itemsArray[j].desc = desc;
+            itemsArray[j].status = status;
+            itemsArray[j].priority = priority;
+            itemsArray[j].type = type;
             break;
 
         }
@@ -165,6 +175,42 @@ function creatediv(input, desc, status, type, id) {
 
             editformv();
             edv = this.parentNode.getAttribute('ide');
+            for (var j = 0; j < itemsArray.length; j++) {
+        if (itemsArray[j].id == edv) {
+           document.querySelector('#etitle').value= itemsArray[j].title;
+           document.querySelector('#edesc').value= itemsArray[j].desc ;
+           if (itemsArray[j].status=="Done"){
+            document.getElementById('es0').checked = true;
+        } 
+    else if(itemsArray[j].status=="Inprogress")
+     {
+        document.getElementById('es1').checked = true;
+     }
+     else {
+         document.getElementById('es2').checked=true;
+    }
+     document.querySelector('#epriority')=itemsArray[j].priority 
+        
+             
+            
+
+
+            if(itemsArray[j].type=="requirements") 
+                {document.getElementById('er1').checked = true;}
+     
+     else if(itemsArray[j].type=="testing")
+        {document.getElementById('er2').checked = true;}
+     
+    else if(itemsArray[j].type=="development")
+        {document.getElementById('er3').checked = true;}
+       
+    else {
+        document.getElementById('er4').checked=true;
+        
+    }
+break;
+        }
+    }
 
 
         });
@@ -179,13 +225,13 @@ function creatediv(input, desc, status, type, id) {
 //Create Task ButtonEvent listner
 ckt.addEventListener('click', function (e) {
     e.preventDefault();
-    var input = document.querySelector('#title').value;
+     input = document.querySelector('#title').value;
     while(input=="")
         {
             input=prompt("enter title");
         }
-    var desc = document.querySelector('#desc').value;
-    var status;
+    desc = document.querySelector('#desc').value;
+     status;
     if (document.getElementById('s0').checked == true) {
         status = document.getElementById('s0').value;
     } else if (document.getElementById('s1').checked == true) {
@@ -193,12 +239,12 @@ ckt.addEventListener('click', function (e) {
     } else {
         status = document.getElementById('s2').value;
     }
-    var priority = document.querySelector('#priority').value;
+    priority = document.querySelector('#priority').value;
     while(priority=="")
         {
             priority=prompt("enter Priority Number");
         }
-    var type;
+     type;
     if (document.getElementById('r1').checked == true) {
         type = document.getElementById('r1').value;
     } else if (document.getElementById('r2').checked == true) {
@@ -220,9 +266,10 @@ ckt.addEventListener('click', function (e) {
     localStorage.setItem('did', JSON.stringify(did));
     creatediv(input, desc, status, type, did);
 
+input.value = " hello";
     forminvisiblemain();
 
-    input.value = " ";
+    
     desc.value = " ";
     status.value = " ";
     priority.value = " ";
