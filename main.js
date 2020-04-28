@@ -179,31 +179,30 @@ function creatediv(input, desc, status, type, id) {
         if (itemsArray[j].id == edv) {
            document.querySelector('#etitle').value= itemsArray[j].title;
            document.querySelector('#edesc').value= itemsArray[j].desc ;
+           document.querySelector('#epriority').value=itemsArray[j].priority;
            if (itemsArray[j].status=="Done"){
             document.getElementById('es0').checked = true;
         } 
-    else if(itemsArray[j].status=="Inprogress")
+    else if(itemsArray[j].status==="Inprogress")
      {
         document.getElementById('es1').checked = true;
      }
      else {
          document.getElementById('es2').checked=true;
     }
-     document.querySelector('#epriority')=itemsArray[j].priority 
         
-             
-            
-
-
             if(itemsArray[j].type=="requirements") 
-                {document.getElementById('er1').checked = true;}
-     
+                {
+                    document.getElementById('er1').checked=true;
+     }
      else if(itemsArray[j].type=="testing")
-        {document.getElementById('er2').checked = true;}
-     
+        {
+            document.getElementById('er2').checked=true;
+     }
     else if(itemsArray[j].type=="development")
-        {document.getElementById('er3').checked = true;}
-       
+        {
+            document.getElementById('er3').checked=true;
+       }
     else {
         document.getElementById('er4').checked=true;
         
